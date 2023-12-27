@@ -1,0 +1,240 @@
+body {
+  font-family: "Times New Roman", Times, serif;
+  margin: 0;
+  padding: 0;
+  background-color: skyblue;
+}
+.container {
+  display: flex;
+  justify-content: space-around;
+  align-items: flex-start;
+  padding: 20px;
+}
+.queueAndTellers {
+  position: relative;
+  bottom: 330px;
+  border: 3px solid #2e94e3;
+}
+.monitor,
+.queueAndTellers {
+  flex: 0 0 45%;
+  padding: 20px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+.monitor {
+  border: 3px solid #2e94e3;
+  text-align: center;
+  padding-bottom: 25%;
+  margin-top: 2%;
+  background-color: black;
+  color: white;
+  position: relative;
+  bottom: 200px;
+}
+.desc {
+  position: relative;
+  top: 360px;
+}
+.queue {
+  border: 3px solid #2e94e3;
+  margin-bottom: 20px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  opacity: 0.8;
+}
+.queue,
+.tellers h2 {
+  border: 3px solid #2e94e3;
+  border-bottom: 2px solid #ddd;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  font-size: 20px;
+  color: #333;
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.queue button {
+  display: inline-block;
+  outline: 0;
+  cursor: pointer;
+  border: none;
+  padding: 0 20px;
+  height: 45px;
+  line-height: 45px;
+  border-radius: 7px;
+  font-weight: 400;
+  font-size: 16px;
+  background: white;
+  color: #696969;
+  box-shadow: 0 4px 14px 0 rgb(0 0 0 / 10%);
+  transition: background 0.2s ease, color 0.2s ease, box-shadow 0.2s ease;
+  :hover {
+    background: rgba(255, 255, 255, 0.9);
+  }
+}
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+#customerQueue li {
+  margin-bottom: 10px;
+  font-weight: bold;
+  font-size: 18px;
+  color: #333;
+}
+
+.teller {
+  margin-bottom: 20px;
+}
+
+.tellerContent {
+  padding: 10px;
+  background-color: #f9f9f9;
+  border-radius: 4px;
+  font-size: 16px;
+}
+#customerName {
+  width: 20%;
+  color: rgb(36, 35, 42);
+  font-size: 16px;
+  line-height: 20px;
+  min-height: 28px;
+  border-radius: 4px;
+  padding: 8px 16px;
+  border: 2px solid transparent;
+  box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+  background: rgb(251, 251, 251);
+  transition: all 0.1s ease 0s;
+  :focus {
+    border: 2px solid rgb(124, 138, 255);
+  }
+}
+.serving-text {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+.monitorContent {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-top: 40px;
+  font-size: 39px;
+}
+.priority {
+  background-color: yellow; /* Change background color */
+  font-weight: bold; /* Apply bold font */
+  /* Add any other styles for highlighting priority customers */
+}
+/* clock */
+.datetime {
+  color: #fff;
+  background: #10101e;
+  font-family: "Segoe UI", sans-serif;
+  width: 340px;
+  padding: 15px 10px;
+  border: 3px solid #2e94e3;
+  border-radius: 5px;
+  /*-webkit-box-reflect: below 1px linear-gradient(transparent, rgba(255, 255, 255, 0.1));*/
+  transition: 0.5s;
+  transition-property: background, box-shadow;
+}
+
+.datetime:hover {
+  background: #2e94e3;
+  box-shadow: 0 0 30px #2e94e3;
+}
+
+.date {
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.time {
+  font-size: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.time span:not(:last-child) {
+  position: relative;
+  margin: 0 6px;
+  font-weight: 600;
+  text-align: center;
+  letter-spacing: 3px;
+}
+
+.time span:last-child {
+  background: #2e94e3;
+  font-size: 30px;
+  font-weight: 600;
+  text-transform: uppercase;
+  margin-top: 10px;
+  padding: 0 5px;
+  border-radius: 3px;
+}
+.datetime {
+  position: relative;
+  left: 23.5%;
+  bottom: 160px;
+  margin-top: 0%;
+}
+/* logo */
+.logo {
+  position: relative;
+  left: 60px;
+  top: 10px;
+  max-width: 100%;
+  max-height: 100%;
+  height: 180px;
+  background-color: blue;
+  mix-blend-mode: multiply;
+}
+/* for screen 768px */
+@media screen and (max-width: 768px) {
+  .container {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+  }
+
+  .monitor,
+  .queueAndTellers {
+    flex: 1 0 100%;
+    margin-bottom: 20px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+  }
+
+  .logo {
+    width: 80%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.3);
+    margin-bottom: 20px;
+  }
+
+  /* Other adjustments for smaller screens */
+
+  /* Example adjustments for fonts */
+  body {
+    font-size: 16px;
+  }
+
+  .time {
+    font-size: 40px;
+  }
+}

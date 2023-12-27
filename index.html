@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Bank Queue System</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="initClock()">
+        <img src="css/logo-search-grid-1x.png" alt="Logo" class="logo">
+     <!--digital clock start-->
+     <div class="datetime">
+        <div class="date">
+          <span id="dayname">Day</span>,
+          <span id="month">Month</span>
+          <span id="daynum">00</span>,
+          <span id="year">Year</span>
+        </div>
+        <div class="time">
+          <span id="hour">00</span>:
+          <span id="minutes">00</span>:
+          <span id="seconds">00</span>
+          <span id="period">AM</span>
+        </div>
+      </div>
+      <!--digital clock end-->
+    
+  <div class="container">
+    <div class="monitor">
+      <h2>Monitor</h2>
+      <div class="monitorContent" id="monitorContent">No customer being served currently.</div>
+      <div class="desc">
+        <p>
+            Priority queuing is given to PWD, senior citizens women, Hexagon Club members, and clients who have queued up via WWJS TouchQ
+        </p>
+      </div>
+    </div>
+    
+    <div class="queueAndTellers">
+      <div class="queue">
+        <h2>Queue</h2>
+        <ul id="customerQueue"></ul>
+        <form id="customerForm">
+          <label for="customerName">Customer:</label>
+          <input placeholder="Name" id="customerName" required>
+          <button type="submit">Add</button>
+          <button id="priorityButton">Mark Priority</button>
+          <button type="button" id="resetButton">Reset</button>
+        </form>
+      </div>
+      <div class="tellers">
+        <!-- Tellers automatic na sa js -->
+      </div>
+      
+  <script src="script.js"></script>
+  <script type="text/javascript">
+    function updateClock(){
+      var now = new Date();
+      var dname = now.getDay(),
+          mo = now.getMonth(),
+          dnum = now.getDate(),
+          yr = now.getFullYear(),
+          hou = now.getHours(),
+          min = now.getMinutes(),
+          sec = now.getSeconds(),
+          pe = "AM";
+
+          if(hou >= 12){
+            pe = "PM";
+          }
+          if(hou == 0){
+            hou = 12;
+          }
+          if(hou > 12){
+            hou = hou - 12;
+          }
+
+          Number.prototype.pad = function(digits){
+            for(var n = this.toString(); n.length < digits; n = 0 + n);
+            return n;
+          }
+
+          var months = ["January", "February", "March", "April", "May", "June", "July", "Augest", "September", "October", "November", "December"];
+          var week = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+          var ids = ["dayname", "month", "daynum", "year", "hour", "minutes", "seconds", "period"];
+          var values = [week[dname], months[mo], dnum.pad(2), yr, hou.pad(2), min.pad(2), sec.pad(2), pe];
+          for(var i = 0; i < ids.length; i++)
+          document.getElementById(ids[i]).firstChild.nodeValue = values[i];
+    }
+
+    function initClock(){
+      updateClock();
+      window.setInterval("updateClock()", 1);
+    }
+    </script>
+</body>
+</html>
